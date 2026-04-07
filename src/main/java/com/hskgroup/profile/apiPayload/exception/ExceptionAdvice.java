@@ -1,8 +1,8 @@
-package com.hskgroup.profile.apiPayload.code.exception;
+package com.hskgroup.profile.apiPayload.exception;
 
 import com.hskgroup.profile.apiPayload.ApiResponse;
-import com.hskgroup.profile.apiPayload.code.ErrorReasonDTO;
-import com.hskgroup.profile.apiPayload.code.status.ErrorType;
+import com.hskgroup.profile.apiPayload.dto.ErrorReasonDTO;
+import com.hskgroup.profile.apiPayload.status.ErrorType;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;

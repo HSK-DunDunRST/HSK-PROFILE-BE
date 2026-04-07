@@ -1,7 +1,7 @@
-package com.hskgroup.profile.apiPayload.code.status;
+package com.hskgroup.profile.apiPayload.status;
 
 import com.hskgroup.profile.apiPayload.code.BaseCode;
-import com.hskgroup.profile.apiPayload.code.ReasonDTO;
+import com.hskgroup.profile.apiPayload.dto.ReasonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

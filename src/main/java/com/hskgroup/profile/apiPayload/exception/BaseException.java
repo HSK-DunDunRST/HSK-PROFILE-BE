@@ -1,7 +1,7 @@
-package com.hskgroup.profile.apiPayload.code.exception;
+package com.hskgroup.profile.apiPayload.exception;
 
 import com.hskgroup.profile.apiPayload.code.BaseErrorCode;
-import com.hskgroup.profile.apiPayload.code.ErrorReasonDTO;
+import com.hskgroup.profile.apiPayload.dto.ErrorReasonDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;

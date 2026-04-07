@@ -1,4 +1,4 @@
-package com.hskgroup.profile.apiPayload.code;
+package com.hskgroup.profile.apiPayload.dto;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 
 @Getter
 @Builder
-public class ErrorReasonDTO {
+public class ReasonDTO {
 
     private HttpStatus httpStatus;
 

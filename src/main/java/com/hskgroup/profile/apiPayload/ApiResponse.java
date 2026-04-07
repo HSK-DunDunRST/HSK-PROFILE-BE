@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.hskgroup.profile.apiPayload.code.BaseCode;
-import com.hskgroup.profile.apiPayload.code.status.SuccessStatus;
+import com.hskgroup.profile.apiPayload.status.SuccessStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
