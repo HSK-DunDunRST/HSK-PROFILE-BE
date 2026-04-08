@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /* 프로젝트 이력 조회 응답 DTO */
@@ -19,4 +20,5 @@ public class ProjectRes {
     private String projectDescription;
     private List<TechStackEntity> techStacks;
     private String projectLink;
+    private LocalDateTime lastUpdateDate;
 }

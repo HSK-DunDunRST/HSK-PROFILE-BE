@@ -2,7 +2,6 @@ package com.hskgroup.profile.converter;
 
 import com.hskgroup.profile.dto.EducationRes;
 import com.hskgroup.profile.entity.EducationEntity;
-import com.hskgroup.profile.entity.NoticeEntity;
 
 public class EducationConverter {
     public static EducationRes convertToEducationRes(EducationEntity educationEntity) {

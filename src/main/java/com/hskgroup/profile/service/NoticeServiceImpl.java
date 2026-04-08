@@ -21,7 +21,7 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class NoticeServiceImpl implements NoticeService {
 
-    private NoticeRepository noticeRepository;
+    private final NoticeRepository noticeRepository;
 
     @Override // 공지시항 전체 조회
     public List<NoticeRes> getAllNotices() {
