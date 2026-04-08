@@ -1,6 +1,7 @@
 package com.hskgroup.profile.entity;
 
 import com.hskgroup.profile.entity.common.BaseTimeEntity;
+import com.hskgroup.profile.entity.enums.EducationStatus;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -19,12 +20,13 @@ public class EducationEntity extends BaseTimeEntity {
     @Column(name = "school_name", nullable = false, length = 100)
     private String schoolName;
 
-    @Column(length = 100)
-    private String major;
+    @Column(name = "major_name", nullable = false, length = 100)
+    private String majorName;
 
-    @Column(length = 50)
-    private String period;
+    @Column(name = "edu_period", nullable = false, length = 50)
+    private String educationPeriod;
 
-    @Column(length = 20)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "edu_status", nullable = false, length = 20)
+    private EducationStatus educationStatus;
 }

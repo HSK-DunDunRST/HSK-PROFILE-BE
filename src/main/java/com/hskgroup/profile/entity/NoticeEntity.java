@@ -18,12 +18,11 @@ public class NoticeEntity extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 255, nullable = false)
-    private String title;
+    @Column(name = "notice_title", nullable = false)
+    private String noticeTitle;
 
     @Lob
+    @Column(name = "notice_content", nullable = false)
     private String content;
 
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private LocalDateTime createdAt;
 }

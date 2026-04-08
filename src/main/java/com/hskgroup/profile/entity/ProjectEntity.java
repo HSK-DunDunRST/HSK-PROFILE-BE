@@ -5,6 +5,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Table(name = "project_data")
 @Getter
@@ -15,16 +17,21 @@ public class ProjectEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 200, nullable = false)
+    @Column(name = "project_title", length = 200, nullable = false)
     private String projectTitle;
 
     @Lob
-    @Column(name = "description_name")
+    @Column(name = "description_name", nullable = false)
     private String projectDescription;
 
-    @Column(name = "techstack_name", length = 255)
-    private String techStackName;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "project_techstack",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "techstack_id")
+    )
+    private List<TechStackEntity> techStacks;
 
-    @Column(length = 255)
-    private String link;
+    @Column(name = "project_link", nullable = false)
+    private String projectLink;
 }
