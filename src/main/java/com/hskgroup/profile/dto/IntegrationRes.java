@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class MainRes {
+public class IntegrationRes {
     private List<ProfileRes> profileList;
     private List<EducationRes> educationList;
     private List<CertificationRes> certificationList;

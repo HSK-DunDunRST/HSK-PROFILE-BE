@@ -1,0 +1,17 @@
+package com.hskgroup.profile.converter;
+
+import com.hskgroup.profile.dto.EducationRes;
+import com.hskgroup.profile.entity.EducationEntity;
+import com.hskgroup.profile.entity.NoticeEntity;
+
+public class EducationConverter {
+    public static EducationRes convertToEducationRes(EducationEntity educationEntity) {
+        return EducationRes.builder()
+                .id(educationEntity.getId())
+                .schoolName(educationEntity.getSchoolName())
+                .majorName(educationEntity.getMajorName())
+                .educationPeriod(educationEntity.getEducationPeriod())
+                .educationStatus(educationEntity.getEducationStatus().toString())
+                .build();
+    }
+}

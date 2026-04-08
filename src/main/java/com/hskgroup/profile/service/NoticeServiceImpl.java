@@ -21,19 +21,18 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public class NoticeServiceImpl implements NoticeService {
 
-    @Autowired
     private NoticeRepository noticeRepository;
 
     @Override // 공지시항 전체 조회
     public List<NoticeRes> getAllNotices() {
         return noticeRepository.findAll().stream()
-                .map(NoticeConverter::from)
+                .map(NoticeConverter::convertToNoticeRes)
                 .toList();
     }
 
     @Override // 최신 공지사항 1개 조회
     public Optional<NoticeRes> getRecentNotice() {
         return noticeRepository.findTopByOrderByCreatedAtDesc()
-                .map(NoticeConverter::from);
+                .map(NoticeConverter::convertToNoticeRes);
     }
 }

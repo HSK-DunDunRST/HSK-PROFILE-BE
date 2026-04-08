@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /* 프로필 정보 조회 응답 DTO */
@@ -18,4 +19,5 @@ public class ProfileRes {
     private String githubLink;
     private String emailAddress;
     private List<TechStackEntity> techStackList;
+    private LocalDateTime lastUpdateDate;
 }
