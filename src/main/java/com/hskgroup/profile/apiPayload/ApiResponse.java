@@ -19,7 +19,7 @@ public class ApiResponse<T> {
     private final String message;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private T result;
+    private T data;
 
     // 성공한 경우 응답 생성
     public static <T> ApiResponse<T> onSuccess(T result){
