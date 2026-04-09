@@ -5,10 +5,7 @@ import com.hskgroup.profile.converter.EducationConverter;
 import com.hskgroup.profile.converter.ProfileConverter;
 import com.hskgroup.profile.converter.ProjectConverter;
 import com.hskgroup.profile.dto.*;
-import com.hskgroup.profile.repository.CertificationRepository;
-import com.hskgroup.profile.repository.EducationRepository;
-import com.hskgroup.profile.repository.ProfileSettingRepository;
-import com.hskgroup.profile.repository.ProjectRepository;
+import com.hskgroup.profile.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,12 +21,14 @@ public class IntegrationServiceImpl implements IntegrationService {
     private final EducationRepository educationRepository;
     private final CertificationRepository certificationRepository;
     private final ProjectRepository projectRepository;
+    private final TechStackRepository  techStackRepository;
 
     @Override // 통합 조회
     public IntegrationRes getIntegrationData() {
         // 프로필 정보 조회 (ProfileConverter)
         List<ProfileRes> getProfileInfo = profileSettingRepository.findAll().stream()
-                .map(ProfileConverter::convertToProfileRes).toList();
+                .map(ProfileConverter::convertToProfileRes)
+                .toList();
         // 학력 정보 조회 (EducationConverter)
         List<EducationRes> getEducationInfo = educationRepository.findAll().stream()
                 .map(EducationConverter::convertToEducationRes).toList();
@@ -39,6 +38,8 @@ public class IntegrationServiceImpl implements IntegrationService {
         // 프로젝트 이력 조회 (ProjectConverter)
         List<ProjectRes> getProjectInfo = projectRepository.findAll().stream()
                 .map(ProjectConverter::convertToProjectRes).toList();
+        // 기술스택 정보 조회 (TechStackConverter)
+
         // 통합 조회 응답 회신
         return IntegrationRes.builder()
                 .profileList(getProfileInfo)

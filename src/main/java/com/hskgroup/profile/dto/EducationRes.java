@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class EducationRes {
-    private Long id;
     private String schoolName;
     private String majorName;
     private String educationPeriod;

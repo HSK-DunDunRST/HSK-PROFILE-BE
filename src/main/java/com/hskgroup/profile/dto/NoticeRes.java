@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class NoticeRes {
-    private Long id;
     private String noticeTitle;
     private String noticeContent;
     private LocalDateTime noticeCreateDate;

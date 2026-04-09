@@ -1,15 +1,9 @@
 package com.hskgroup.profile.service;
 
-import com.hskgroup.profile.apiPayload.ApiResponse;
-import com.hskgroup.profile.apiPayload.exception.BaseException;
-import com.hskgroup.profile.apiPayload.status.ErrorType;
 import com.hskgroup.profile.converter.NoticeConverter;
 import com.hskgroup.profile.dto.NoticeRes;
-import com.hskgroup.profile.entity.NoticeEntity;
 import com.hskgroup.profile.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

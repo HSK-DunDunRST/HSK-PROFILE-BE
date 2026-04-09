@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ProjectRes {
-    private Long id;
     private String projectTitle;
     private String projectDescription;
     private List<TechStackEntity> techStacks;

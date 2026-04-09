@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class CertificationRes {
-    private Long id;
     private String certificationName;
     private String organizationName;
     private String acquisitionDate;

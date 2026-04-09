@@ -15,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ProfileRes {
-    private Long id;
     private String githubLink;
     private String emailAddress;
     private List<TechStackEntity> techStackList;
