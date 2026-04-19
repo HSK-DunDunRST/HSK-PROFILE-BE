@@ -5,6 +5,7 @@ import com.hskgroup.profile.converter.EducationConverter;
 import com.hskgroup.profile.converter.ProfileConverter;
 import com.hskgroup.profile.converter.ProjectConverter;
 import com.hskgroup.profile.dto.*;
+import com.hskgroup.profile.entity.TechStackEntity;
 import com.hskgroup.profile.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,11 @@ public class IntegrationServiceImpl implements IntegrationService {
 
     @Override // 통합 조회
     public IntegrationRes getIntegrationData() {
+        List<TechStackEntity> allTechStacks = techStackRepository.findAll();
+
         // 프로필 정보 조회 (ProfileConverter)
         List<ProfileRes> getProfileInfo = profileSettingRepository.findAll().stream()
-                .map(ProfileConverter::convertToProfileRes)
+                .map(profile -> ProfileConverter.convertToProfileRes(profile, allTechStacks))
                 .toList();
         // 학력 정보 조회 (EducationConverter)
         List<EducationRes> getEducationInfo = educationRepository.findAll().stream()
@@ -38,7 +41,6 @@ public class IntegrationServiceImpl implements IntegrationService {
         // 프로젝트 이력 조회 (ProjectConverter)
         List<ProjectRes> getProjectInfo = projectRepository.findAll().stream()
                 .map(ProjectConverter::convertToProjectRes).toList();
-        // 기술스택 정보 조회 (TechStackConverter)
 
         // 통합 조회 응답 회신
         return IntegrationRes.builder()
