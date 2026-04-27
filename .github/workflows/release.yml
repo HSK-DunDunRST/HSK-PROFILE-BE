@@ -23,4 +23,3 @@ jobs:
         run: |
           mkdir -p /home/hskgroup-ubuntu/app
           cp build/libs/*.jar /home/hskgroup-ubuntu/app/app.jar
-          sudo systemctl restart spring-app
