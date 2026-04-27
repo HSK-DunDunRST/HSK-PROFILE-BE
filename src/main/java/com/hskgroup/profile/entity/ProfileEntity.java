@@ -16,11 +16,14 @@ public class ProfileEntity extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "github_link", nullable = false)
-    private String githubLink;
+    @Column(name = "github_id", nullable = false)
+    private String githubId;
 
     @Column(name = "email_address", nullable = false)
     private String emailAddress;
+
+    @Column(name = "instagram_id", nullable = false)
+    private String instagramId;
 
 }
 

@@ -22,7 +22,7 @@ public class CertificationEntity extends BaseTimeEntity {
     @Column(name = "organization_name", length = 100)
     private String organizationName;
 
-    @Column(name = "acquisition_date", length = 20)
+    @Column(name = "acquisition_date", nullable = false, length = 20)
     private String acquisitionDate;
 
     @Column(name = "expiration_date", length = 20)

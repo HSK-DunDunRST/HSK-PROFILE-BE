@@ -1,5 +1,6 @@
 package com.hskgroup.profile.entity;
 
+import com.hskgroup.profile.entity.common.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -11,7 +12,7 @@ import java.util.List;
 @Table(name = "project_data")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class ProjectEntity {
+public class ProjectEntity extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -23,6 +23,6 @@ public class NoticeEntity extends BaseTimeEntity {
 
     @Lob
     @Column(name = "notice_content", nullable = false)
-    private String content;
+    private String noticeContent;
 
 }
