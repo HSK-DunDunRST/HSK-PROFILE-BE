@@ -1,6 +1,5 @@
 package com.hskgroup.profile.dto;
 
-import com.hskgroup.profile.entity.TechStackEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +16,7 @@ import java.util.List;
 public class ProjectRes {
     private String projectTitle;
     private String projectDescription;
-    private List<TechStackEntity> techStacks;
+    private List<TechStackRes> techStacks;
     private String projectLink;
     private LocalDateTime lastUpdateDate;
 }

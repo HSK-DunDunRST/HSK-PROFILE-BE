@@ -19,7 +19,7 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Override // 공지시항 전체 조회
     public List<NoticeRes> getAllNotices() {
-        return noticeRepository.findAll().stream()
+        return noticeRepository.findAllByOrderByCreatedAtDesc().stream()
                 .map(NoticeConverter::convertToNoticeRes)
                 .toList();
     }

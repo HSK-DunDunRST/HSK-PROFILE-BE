@@ -1,6 +1,5 @@
 package com.hskgroup.profile.dto;
 
-import com.hskgroup.profile.entity.TechStackEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,8 +14,9 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ProfileRes {
-    private String githubLink;
+    private String githubId;
     private String emailAddress;
-    private List<TechStackEntity> techStackList;
+    private String instagramId;
+    private List<TechStackRes> techStackList;
     private LocalDateTime lastUpdateDate;
 }
