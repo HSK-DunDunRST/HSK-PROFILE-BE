@@ -9,7 +9,7 @@ public class EducationConverter {
                 .schoolName(educationEntity.getSchoolName())
                 .majorName(educationEntity.getMajorName())
                 .educationPeriod(educationEntity.getEducationPeriod())
-                .educationStatus(educationEntity.getEducationStatus().toString())
+                .educationStatus(educationEntity.getEducationStatus().getDescription())
                 .build();
     }
 }
