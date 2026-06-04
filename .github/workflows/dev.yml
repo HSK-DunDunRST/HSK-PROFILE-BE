@@ -21,6 +21,6 @@ jobs:
         run: ./gradlew clean bootJar -x test
       - name: Deploy
         run: |
-          mkdir -p /home/hskgroup-ubuntu/hskgroup-profile
-          cp build/libs/*.jar /home/hskgroup-ubuntu/hskgroup-profile/app.jar
-          sudo systemctl restart hskgroup-profile
+          mkdir -p /home/hskgroup-ubuntu/app
+          cp build/libs/*.jar /home/hskgroup-ubuntu/app/app.jar
+          sudo systemctl restart spring-app
