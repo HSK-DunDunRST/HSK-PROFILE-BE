@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.hskgroup.profile.apiPayload.code.BaseCode;
+import com.hskgroup.profile.apiPayload.code.BaseErrorCode;
 import com.hskgroup.profile.apiPayload.status.SuccessStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -31,8 +32,8 @@ public class ApiResponse<T> {
     }
 
     // 실패한 경우 응답 생성
-    public static <T> ApiResponse<T> onFailure(String code, String message, T data){
-        return new ApiResponse<>(false, code, message, data);
+    public static <T> ApiResponse<T> onFailure(BaseErrorCode code, T data){
+        return new ApiResponse<>(false, code.getReasonHttpStatus().getCode(), code.getReasonHttpStatus().getMessage(), data);
     }
 
 }
