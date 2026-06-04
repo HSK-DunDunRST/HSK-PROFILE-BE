@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "certification_data")
@@ -15,6 +18,10 @@ public class CertificationEntity extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @UuidGenerator
+    @Column(name = "certification_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID certificationUuid;
 
     @Column(name = "certification_name", nullable = false, length = 100)
     private String certificationName;
