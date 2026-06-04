@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.req;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -10,10 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthLoginReq {
+public class AuthRefreshReq {
     @NotBlank
-    private String username;
-
-    @NotBlank
-    private String password;
+    private String refreshToken;
 }

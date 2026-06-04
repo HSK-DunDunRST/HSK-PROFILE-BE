@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.req;
 
 import com.hskgroup.profile.entity.enums.EducationStatus;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EducationCreateReq {
+public class EducationUpdateReq {
     private String schoolName;
     private String majorName;
     private String educationPeriod;

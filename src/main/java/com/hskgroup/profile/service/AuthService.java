@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
-import com.hskgroup.profile.dto.AdminPasswordChangeReq;
-import com.hskgroup.profile.dto.AuthLoginReq;
-import com.hskgroup.profile.dto.AuthRefreshReq;
-import com.hskgroup.profile.dto.AuthTokenRes;
+import com.hskgroup.profile.dto.req.AdminPasswordChangeReq;
+import com.hskgroup.profile.dto.req.AuthLoginReq;
+import com.hskgroup.profile.dto.req.AuthRefreshReq;
+import com.hskgroup.profile.dto.res.AuthTokenRes;
 
 public interface AuthService {
     AuthTokenRes login(AuthLoginReq request);

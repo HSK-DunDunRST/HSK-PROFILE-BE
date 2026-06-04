@@ -2,7 +2,7 @@ package com.hskgroup.profile.controller;
 
 import com.hskgroup.profile.apiPayload.ApiResponse;
 import com.hskgroup.profile.apiPayload.status.SuccessStatus;
-import com.hskgroup.profile.dto.NoticeRes;
+import com.hskgroup.profile.dto.res.NoticeRes;
 import com.hskgroup.profile.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

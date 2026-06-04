@@ -2,9 +2,9 @@ package com.hskgroup.profile.controller;
 
 import com.hskgroup.profile.apiPayload.ApiResponse;
 import com.hskgroup.profile.apiPayload.status.SuccessStatus;
-import com.hskgroup.profile.dto.EducationCreateReq;
-import com.hskgroup.profile.dto.EducationRes;
-import com.hskgroup.profile.dto.EducationUpdateReq;
+import com.hskgroup.profile.dto.req.EducationCreateReq;
+import com.hskgroup.profile.dto.res.EducationRes;
+import com.hskgroup.profile.dto.req.EducationUpdateReq;
 import com.hskgroup.profile.service.EducationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

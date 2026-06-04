@@ -1,6 +1,6 @@
 package com.hskgroup.profile.converter;
 
-import com.hskgroup.profile.dto.EducationRes;
+import com.hskgroup.profile.dto.res.EducationRes;
 import com.hskgroup.profile.entity.EducationEntity;
 
 public class EducationConverter {

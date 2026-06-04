@@ -1,6 +1,6 @@
 package com.hskgroup.profile.converter;
 
-import com.hskgroup.profile.dto.NoticeRes;
+import com.hskgroup.profile.dto.res.NoticeRes;
 import com.hskgroup.profile.entity.NoticeEntity;
 
 public class NoticeConverter {

@@ -1,8 +1,8 @@
 package com.hskgroup.profile.service;
 
-import com.hskgroup.profile.dto.CertificationCreateReq;
-import com.hskgroup.profile.dto.CertificationRes;
-import com.hskgroup.profile.dto.CertificationUpdateReq;
+import com.hskgroup.profile.dto.req.CertificationCreateReq;
+import com.hskgroup.profile.dto.res.CertificationRes;
+import com.hskgroup.profile.dto.req.CertificationUpdateReq;
 
 import java.util.Optional;
 import java.util.UUID;

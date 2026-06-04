@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.NoticeConverter;
-import com.hskgroup.profile.dto.NoticeCreateReq;
-import com.hskgroup.profile.dto.NoticeRes;
-import com.hskgroup.profile.dto.NoticeUpdateReq;
+import com.hskgroup.profile.dto.req.NoticeCreateReq;
+import com.hskgroup.profile.dto.res.NoticeRes;
+import com.hskgroup.profile.dto.req.NoticeUpdateReq;
 import com.hskgroup.profile.entity.NoticeEntity;
 import com.hskgroup.profile.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;

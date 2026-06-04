@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.EducationConverter;
-import com.hskgroup.profile.dto.EducationCreateReq;
-import com.hskgroup.profile.dto.EducationRes;
-import com.hskgroup.profile.dto.EducationUpdateReq;
+import com.hskgroup.profile.dto.req.EducationCreateReq;
+import com.hskgroup.profile.dto.res.EducationRes;
+import com.hskgroup.profile.dto.req.EducationUpdateReq;
 import com.hskgroup.profile.entity.EducationEntity;
 import com.hskgroup.profile.repository.EducationRepository;
 import lombok.RequiredArgsConstructor;

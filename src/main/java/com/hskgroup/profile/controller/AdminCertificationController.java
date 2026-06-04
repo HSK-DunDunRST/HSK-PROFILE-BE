@@ -2,9 +2,9 @@ package com.hskgroup.profile.controller;
 
 import com.hskgroup.profile.apiPayload.ApiResponse;
 import com.hskgroup.profile.apiPayload.status.SuccessStatus;
-import com.hskgroup.profile.dto.CertificationCreateReq;
-import com.hskgroup.profile.dto.CertificationRes;
-import com.hskgroup.profile.dto.CertificationUpdateReq;
+import com.hskgroup.profile.dto.req.CertificationCreateReq;
+import com.hskgroup.profile.dto.res.CertificationRes;
+import com.hskgroup.profile.dto.req.CertificationUpdateReq;
 import com.hskgroup.profile.service.CertificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.DeleteMapping;

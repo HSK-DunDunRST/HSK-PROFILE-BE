@@ -1,7 +1,7 @@
 package com.hskgroup.profile.converter;
 
-import com.hskgroup.profile.dto.ProjectRes;
-import com.hskgroup.profile.dto.TechStackRes;
+import com.hskgroup.profile.dto.res.ProjectRes;
+import com.hskgroup.profile.dto.res.TechStackRes;
 import com.hskgroup.profile.entity.ProjectEntity;
 
 import java.util.List;

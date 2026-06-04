@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.req;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CertificationUpdateReq {
+public class CertificationCreateReq {
     private String certificationName;
     private String organizationName;
     private String acquisitionDate;

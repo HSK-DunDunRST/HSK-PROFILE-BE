@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.CertificationConverter;
-import com.hskgroup.profile.dto.CertificationCreateReq;
-import com.hskgroup.profile.dto.CertificationRes;
-import com.hskgroup.profile.dto.CertificationUpdateReq;
+import com.hskgroup.profile.dto.req.CertificationCreateReq;
+import com.hskgroup.profile.dto.res.CertificationRes;
+import com.hskgroup.profile.dto.req.CertificationUpdateReq;
 import com.hskgroup.profile.entity.CertificationEntity;
 import com.hskgroup.profile.repository.CertificationRepository;
 import lombok.RequiredArgsConstructor;
