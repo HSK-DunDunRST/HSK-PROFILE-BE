@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.res;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,15 +8,15 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.List;
 
-/* 프로젝트 이력 조회 응답 DTO */
+/* 프로필 정보 조회 응답 DTO */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProjectRes {
-    private String projectTitle;
-    private String projectDescription;
-    private List<TechStackRes> techStacks;
-    private String projectLink;
+public class ProfileRes {
+    private String githubId;
+    private String emailAddress;
+    private String instagramId;
+    private List<TechStackRes> techStackList;
     private LocalDateTime lastUpdateDate;
 }

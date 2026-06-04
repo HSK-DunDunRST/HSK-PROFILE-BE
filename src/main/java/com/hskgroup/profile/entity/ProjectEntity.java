@@ -5,8 +5,10 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "project_data")
@@ -17,6 +19,10 @@ public class ProjectEntity extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @UuidGenerator
+    @Column(name = "project_id", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID projectId;
 
     @Column(name = "project_title", length = 200, nullable = false)
     private String projectTitle;

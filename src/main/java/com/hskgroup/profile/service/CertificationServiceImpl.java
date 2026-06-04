@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.CertificationConverter;
-import com.hskgroup.profile.dto.CertificationCreateReq;
-import com.hskgroup.profile.dto.CertificationRes;
-import com.hskgroup.profile.dto.CertificationUpdateReq;
+import com.hskgroup.profile.dto.req.CertificationCreateReq;
+import com.hskgroup.profile.dto.res.CertificationRes;
+import com.hskgroup.profile.dto.req.CertificationUpdateReq;
 import com.hskgroup.profile.entity.CertificationEntity;
 import com.hskgroup.profile.repository.CertificationRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -33,8 +34,8 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Transactional
     @Override
-    public Optional<CertificationRes> updateCertification(Long certificationId, CertificationUpdateReq request) {
-        return certificationRepository.findById(certificationId)
+    public Optional<CertificationRes> updateCertification(UUID certificationUuid, CertificationUpdateReq request) {
+        return certificationRepository.findByCertificationId(certificationUuid)
                 .map(certificationEntity -> {
                     certificationEntity.update(
                             request.getCertificationName(),
@@ -48,8 +49,8 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Transactional
     @Override
-    public boolean deleteCertification(Long certificationId) {
-        return certificationRepository.findById(certificationId)
+    public boolean deleteCertification(UUID certificationUuid) {
+        return certificationRepository.findByCertificationId(certificationUuid)
                 .map(certificationEntity -> {
                     certificationRepository.delete(certificationEntity);
                     return true;

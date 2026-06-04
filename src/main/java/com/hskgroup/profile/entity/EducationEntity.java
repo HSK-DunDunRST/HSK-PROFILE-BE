@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "education_data")
@@ -16,6 +19,10 @@ public class EducationEntity extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @UuidGenerator
+    @Column(name = "education_id", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID educationId;
 
     @Column(name = "school_name", nullable = false, length = 100)
     private String schoolName;

@@ -2,7 +2,7 @@ package com.hskgroup.profile.controller;
 
 import com.hskgroup.profile.apiPayload.ApiResponse;
 import com.hskgroup.profile.apiPayload.status.SuccessStatus;
-import com.hskgroup.profile.dto.NoticeRes;
+import com.hskgroup.profile.dto.res.NoticeRes;
 import com.hskgroup.profile.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,15 +26,15 @@ public class NoticeController {
     }
 
     @GetMapping("/last")
-    public ApiResponse<NoticeRes> getLastNotice() {
+    public ApiResponse<NoticeRes> getRecentNotice() {
         return noticeService.getRecentNotice()
                 .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }
 
-    @GetMapping("/{noticeUuid}")
-    public ApiResponse<NoticeRes> getNoticeByUuid(@PathVariable UUID noticeUuid) {
-        return noticeService.getNoticeByUuid(noticeUuid)
+    @GetMapping("/{noticeId}")
+    public ApiResponse<NoticeRes> getNotice(@PathVariable UUID noticeId) {
+        return noticeService.getNoticeByUuid(noticeId)
                 .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }

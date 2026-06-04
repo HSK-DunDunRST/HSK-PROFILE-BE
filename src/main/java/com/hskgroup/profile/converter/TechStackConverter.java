@@ -1,6 +1,6 @@
 package com.hskgroup.profile.converter;
 
-import com.hskgroup.profile.dto.TechStackRes;
+import com.hskgroup.profile.dto.res.TechStackRes;
 import com.hskgroup.profile.entity.TechStackEntity;
 
 public class TechStackConverter {

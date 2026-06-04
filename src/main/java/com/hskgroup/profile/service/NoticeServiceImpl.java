@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.NoticeConverter;
-import com.hskgroup.profile.dto.NoticeCreateReq;
-import com.hskgroup.profile.dto.NoticeRes;
-import com.hskgroup.profile.dto.NoticeUpdateReq;
+import com.hskgroup.profile.dto.req.NoticeCreateReq;
+import com.hskgroup.profile.dto.res.NoticeRes;
+import com.hskgroup.profile.dto.req.NoticeUpdateReq;
 import com.hskgroup.profile.entity.NoticeEntity;
 import com.hskgroup.profile.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,8 +35,8 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override // UUID로 공지사항 조회
-    public Optional<NoticeRes> getNoticeByUuid(UUID noticeUuid) {
-        return noticeRepository.findByNoticeUuid(noticeUuid)
+    public Optional<NoticeRes> getNoticeByUuid(UUID noticeId) {
+        return noticeRepository.findByNoticeId(noticeId)
                 .map(NoticeConverter::convertToNoticeRes);
     }
 
@@ -49,8 +49,8 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Transactional
     @Override // 공지사항 수정
-    public Optional<NoticeRes> updateNotice(UUID noticeUuid, NoticeUpdateReq request) {
-        return noticeRepository.findByNoticeUuid(noticeUuid)
+    public Optional<NoticeRes> updateNotice(UUID noticeId, NoticeUpdateReq request) {
+        return noticeRepository.findByNoticeId(noticeId)
                 .map(noticeEntity -> {
                     noticeEntity.update(request.getNoticeTitle(), request.getNoticeContent());
                     return NoticeConverter.convertToNoticeRes(noticeEntity);
@@ -59,8 +59,8 @@ public class NoticeServiceImpl implements NoticeService {
 
     @Transactional
     @Override // 공지사항 삭제
-    public boolean deleteNotice(UUID noticeUuid) {
-        return noticeRepository.findByNoticeUuid(noticeUuid)
+    public boolean deleteNotice(UUID noticeId) {
+        return noticeRepository.findByNoticeId(noticeId)
                 .map(noticeEntity -> {
                     noticeRepository.delete(noticeEntity);
                     return true;

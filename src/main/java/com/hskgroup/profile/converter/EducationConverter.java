@@ -1,12 +1,12 @@
 package com.hskgroup.profile.converter;
 
-import com.hskgroup.profile.dto.EducationRes;
+import com.hskgroup.profile.dto.res.EducationRes;
 import com.hskgroup.profile.entity.EducationEntity;
 
 public class EducationConverter {
     public static EducationRes convertToEducationRes(EducationEntity educationEntity) {
         return EducationRes.builder()
-                .educationId(educationEntity.getId())
+                .educationId(educationEntity.getEducationId())
                 .schoolName(educationEntity.getSchoolName())
                 .majorName(educationEntity.getMajorName())
                 .educationPeriod(educationEntity.getEducationPeriod())

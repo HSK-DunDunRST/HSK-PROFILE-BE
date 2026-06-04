@@ -29,8 +29,8 @@ server:
 
 security:
   jwt:
-    secret: ${JWT_SECRET:change-me-change-me-change-me-change-me}
-    issuer: ${JWT_ISSUER:HSK-PROFILE}
+    secret: ${JWT_SECRET:Change-me}
+    issuer: ${JWT_ISSUER:HSKGroup}
     access-token-expiration-minutes: ${JWT_ACCESS_MINUTES:15}
     refresh-token-expiration-days: ${JWT_REFRESH_DAYS:7}
   admin:

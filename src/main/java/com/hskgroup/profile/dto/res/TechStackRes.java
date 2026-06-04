@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.res;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class NoticeCreateReq {
-    private String noticeTitle;
-    private String noticeContent;
+public class TechStackRes {
+    private String techStackName;
+    private String techStackCreatedAt;
 }

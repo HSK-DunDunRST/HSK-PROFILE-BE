@@ -11,5 +11,5 @@ public interface NoticeRepository extends JpaRepository<NoticeEntity, Long> {
     // 최신 공지사항 조회
     Optional<NoticeEntity> findTopByOrderByCreatedAtDesc();
     List<NoticeEntity> findAllByOrderByCreatedAtDesc();
-    Optional<NoticeEntity> findByNoticeUuid(UUID noticeUuid);
+    Optional<NoticeEntity> findByNoticeId(UUID noticeUuid);
 }

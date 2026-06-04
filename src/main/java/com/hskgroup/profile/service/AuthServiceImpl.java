@@ -2,10 +2,10 @@ package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.apiPayload.exception.BaseException;
 import com.hskgroup.profile.apiPayload.status.ErrorType;
-import com.hskgroup.profile.dto.AdminPasswordChangeReq;
-import com.hskgroup.profile.dto.AuthLoginReq;
-import com.hskgroup.profile.dto.AuthRefreshReq;
-import com.hskgroup.profile.dto.AuthTokenRes;
+import com.hskgroup.profile.dto.req.AdminPasswordChangeReq;
+import com.hskgroup.profile.dto.req.AuthLoginReq;
+import com.hskgroup.profile.dto.req.AuthRefreshReq;
+import com.hskgroup.profile.dto.res.AuthTokenRes;
 import com.hskgroup.profile.entity.AdminAccountEntity;
 import com.hskgroup.profile.repository.AdminAccountRepository;
 import com.hskgroup.profile.security.JwtTokenProvider;
@@ -83,7 +83,6 @@ public class AuthServiceImpl implements AuthService {
         return AuthTokenRes.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
-                .tokenType("Bearer")
                 .accessTokenExpiresIn(jwtTokenProvider.getAccessTokenExpiresInSeconds())
                 .refreshTokenExpiresIn(jwtTokenProvider.getRefreshTokenExpiresInSeconds())
                 .build();

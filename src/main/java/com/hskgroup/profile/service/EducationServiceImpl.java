@@ -1,9 +1,9 @@
 package com.hskgroup.profile.service;
 
 import com.hskgroup.profile.converter.EducationConverter;
-import com.hskgroup.profile.dto.EducationCreateReq;
-import com.hskgroup.profile.dto.EducationRes;
-import com.hskgroup.profile.dto.EducationUpdateReq;
+import com.hskgroup.profile.dto.req.EducationCreateReq;
+import com.hskgroup.profile.dto.res.EducationRes;
+import com.hskgroup.profile.dto.req.EducationUpdateReq;
 import com.hskgroup.profile.entity.EducationEntity;
 import com.hskgroup.profile.repository.EducationRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -33,8 +34,8 @@ public class EducationServiceImpl implements EducationService {
 
     @Transactional
     @Override
-    public Optional<EducationRes> updateEducation(Long educationId, EducationUpdateReq request) {
-        return educationRepository.findById(educationId)
+    public Optional<EducationRes> updateEducation(UUID educationId, EducationUpdateReq request) {
+        return educationRepository.findByEducationId(educationId)
                 .map(educationEntity -> {
                     educationEntity.update(
                             request.getSchoolName(),
@@ -48,8 +49,8 @@ public class EducationServiceImpl implements EducationService {
 
     @Transactional
     @Override
-    public boolean deleteEducation(Long educationId) {
-        return educationRepository.findById(educationId)
+    public boolean deleteEducation(UUID educationId) {
+        return educationRepository.findByEducationId(educationId)
                 .map(educationEntity -> {
                     educationRepository.delete(educationEntity);
                     return true;

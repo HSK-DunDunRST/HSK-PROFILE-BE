@@ -4,7 +4,7 @@ import com.hskgroup.profile.converter.CertificationConverter;
 import com.hskgroup.profile.converter.EducationConverter;
 import com.hskgroup.profile.converter.ProfileConverter;
 import com.hskgroup.profile.converter.ProjectConverter;
-import com.hskgroup.profile.dto.*;
+import com.hskgroup.profile.dto.res.*;
 import com.hskgroup.profile.entity.TechStackEntity;
 import com.hskgroup.profile.repository.*;
 import lombok.RequiredArgsConstructor;

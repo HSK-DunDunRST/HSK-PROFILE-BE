@@ -1,4 +1,4 @@
-package com.hskgroup.profile.dto;
+package com.hskgroup.profile.dto.res;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

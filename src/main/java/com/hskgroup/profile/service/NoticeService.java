@@ -1,8 +1,8 @@
 package com.hskgroup.profile.service;
 
-import com.hskgroup.profile.dto.NoticeCreateReq;
-import com.hskgroup.profile.dto.NoticeRes;
-import com.hskgroup.profile.dto.NoticeUpdateReq;
+import com.hskgroup.profile.dto.req.NoticeCreateReq;
+import com.hskgroup.profile.dto.res.NoticeRes;
+import com.hskgroup.profile.dto.req.NoticeUpdateReq;
 
 import java.util.List;
 import java.util.Optional;
