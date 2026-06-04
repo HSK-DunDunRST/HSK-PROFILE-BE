@@ -22,7 +22,7 @@ public class EducationEntity extends BaseTimeEntity {
 
     @UuidGenerator
     @Column(name = "education_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
-    private UUID educationUuid;
+    private UUID educationId;
 
     @Column(name = "school_name", nullable = false, length = 100)
     private String schoolName;

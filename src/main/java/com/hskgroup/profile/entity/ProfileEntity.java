@@ -21,7 +21,7 @@ public class ProfileEntity extends BaseTimeEntity {
 
     @UuidGenerator
     @Column(name = "profile_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
-    private UUID profileUuid;
+    private UUID profileId;
 
     @Column(name = "github_id", nullable = false)
     private String githubId;

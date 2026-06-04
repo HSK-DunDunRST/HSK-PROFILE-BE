@@ -22,7 +22,7 @@ public class ProjectEntity extends BaseTimeEntity {
 
     @UuidGenerator
     @Column(name = "project_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
-    private UUID projectUuid;
+    private UUID projectId;
 
     @Column(name = "project_title", length = 200, nullable = false)
     private String projectTitle;

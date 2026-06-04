@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Builder
 public class NoticeRes {
-    private UUID noticeUuid;
+    private UUID noticeId;
     private String noticeTitle;
     private String noticeContent;
     private LocalDateTime noticeCreateDate;

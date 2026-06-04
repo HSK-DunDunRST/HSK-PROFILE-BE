@@ -6,7 +6,7 @@ import com.hskgroup.profile.entity.NoticeEntity;
 public class NoticeConverter {
     public static NoticeRes convertToNoticeRes(NoticeEntity noticeEntity) {
         return NoticeRes.builder()
-                .noticeUuid(noticeEntity.getNoticeUuid())
+                .noticeId(noticeEntity.getNoticeId())
                 .noticeTitle(noticeEntity.getNoticeTitle())
                 .noticeContent(noticeEntity.getNoticeContent())
                 .noticeCreateDate(noticeEntity.getCreatedAt())
