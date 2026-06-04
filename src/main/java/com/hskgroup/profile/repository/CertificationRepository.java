@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface CertificationRepository extends JpaRepository<CertificationEntity, Long> {
-    Optional<CertificationEntity> findByCertificationUuid(UUID certificationUuid);
+    Optional<CertificationEntity> findByCertificationId(UUID certificationId);
 }

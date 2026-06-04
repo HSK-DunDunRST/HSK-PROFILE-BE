@@ -6,7 +6,7 @@ import com.hskgroup.profile.entity.EducationEntity;
 public class EducationConverter {
     public static EducationRes convertToEducationRes(EducationEntity educationEntity) {
         return EducationRes.builder()
-                .educationId(educationEntity.getEducationUuid())
+                .educationId(educationEntity.getEducationId())
                 .schoolName(educationEntity.getSchoolName())
                 .majorName(educationEntity.getMajorName())
                 .educationPeriod(educationEntity.getEducationPeriod())

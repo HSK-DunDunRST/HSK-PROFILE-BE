@@ -35,7 +35,7 @@ public class EducationServiceImpl implements EducationService {
     @Transactional
     @Override
     public Optional<EducationRes> updateEducation(UUID educationId, EducationUpdateReq request) {
-        return educationRepository.findByEducationUuid(educationId)
+        return educationRepository.findByEducationId(educationId)
                 .map(educationEntity -> {
                     educationEntity.update(
                             request.getSchoolName(),
@@ -50,7 +50,7 @@ public class EducationServiceImpl implements EducationService {
     @Transactional
     @Override
     public boolean deleteEducation(UUID educationId) {
-        return educationRepository.findByEducationUuid(educationId)
+        return educationRepository.findByEducationId(educationId)
                 .map(educationEntity -> {
                     educationRepository.delete(educationEntity);
                     return true;

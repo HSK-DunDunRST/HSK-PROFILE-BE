@@ -35,7 +35,7 @@ public class CertificationServiceImpl implements CertificationService {
     @Transactional
     @Override
     public Optional<CertificationRes> updateCertification(UUID certificationUuid, CertificationUpdateReq request) {
-        return certificationRepository.findByCertificationUuid(certificationUuid)
+        return certificationRepository.findByCertificationId(certificationUuid)
                 .map(certificationEntity -> {
                     certificationEntity.update(
                             request.getCertificationName(),
@@ -50,7 +50,7 @@ public class CertificationServiceImpl implements CertificationService {
     @Transactional
     @Override
     public boolean deleteCertification(UUID certificationUuid) {
-        return certificationRepository.findByCertificationUuid(certificationUuid)
+        return certificationRepository.findByCertificationId(certificationUuid)
                 .map(certificationEntity -> {
                     certificationRepository.delete(certificationEntity);
                     return true;

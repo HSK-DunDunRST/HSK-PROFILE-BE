@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface EducationRepository extends JpaRepository<EducationEntity, Long> {
-    Optional<EducationEntity> findByEducationUuid(UUID educationId);
+    Optional<EducationEntity> findByEducationId(UUID educationId);
 }

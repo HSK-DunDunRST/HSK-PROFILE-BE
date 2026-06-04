@@ -20,8 +20,8 @@ public class CertificationEntity extends BaseTimeEntity {
     private Long id;
 
     @UuidGenerator
-    @Column(name = "certification_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
-    private UUID certificationUuid;
+    @Column(name = "certification_id", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID certificationId;
 
     @Column(name = "certification_name", nullable = false, length = 100)
     private String certificationName;

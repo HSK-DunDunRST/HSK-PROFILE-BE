@@ -7,5 +7,5 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface AdminAccountRepository extends JpaRepository<AdminAccountEntity, Long> {
-    Optional<AdminAccountEntity> findByUserUuid(UUID userUUId);
+    Optional<AdminAccountEntity> findByUsername(String username);
 }

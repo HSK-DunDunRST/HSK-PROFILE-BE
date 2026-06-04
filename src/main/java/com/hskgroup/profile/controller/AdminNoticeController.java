@@ -29,16 +29,16 @@ public class AdminNoticeController {
         return ApiResponse.onSuccess(noticeService.createNotice(noticeCreateReq));
     }
 
-    @PutMapping("/edit/{noticeUuid}")
-    public ApiResponse<NoticeRes> updateNotice(@PathVariable UUID noticeUuid, @RequestBody NoticeUpdateReq noticeUpdateReq) {
-        return noticeService.updateNotice(noticeUuid, noticeUpdateReq)
+    @PutMapping("/edit/{noticeId}")
+    public ApiResponse<NoticeRes> updateNotice(@PathVariable UUID noticeId, @RequestBody NoticeUpdateReq noticeUpdateReq) {
+        return noticeService.updateNotice(noticeId, noticeUpdateReq)
                 .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
                 .orElse(ApiResponse.of(SuccessStatus._OK, null));
     }
 
-    @DeleteMapping("/del/{noticeUuid}")
-    public ApiResponse<Void> deleteNotice(@PathVariable UUID noticeUuid) {
-        boolean deleted = noticeService.deleteNotice(noticeUuid);
+    @DeleteMapping("/del/{noticeId}")
+    public ApiResponse<Void> deleteNotice(@PathVariable UUID noticeId) {
+        boolean deleted = noticeService.deleteNotice(noticeId);
         return deleted ? ApiResponse.of(SuccessStatus._OK, null) : ApiResponse.of(SuccessStatus._NO_CONTENT, null);
     }
 }

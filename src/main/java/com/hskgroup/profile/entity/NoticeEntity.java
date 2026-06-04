@@ -20,7 +20,7 @@ public class NoticeEntity extends BaseTimeEntity {
     private Long id;
 
     @UuidGenerator
-    @Column(name = "notice_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    @Column(name = "notice_id", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
     private UUID noticeId;
 
     @Column(name = "notice_title", nullable = false)

@@ -15,7 +15,7 @@ import org.hibernate.annotations.UuidGenerator;
 import java.util.UUID;
 
 @Entity
-@Table(name = "admin_account")
+@Table(name = "user_data")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class AdminAccountEntity extends BaseTimeEntity {
@@ -25,7 +25,7 @@ public class AdminAccountEntity extends BaseTimeEntity {
     private Long id;
 
     @UuidGenerator
-    @Column(name = "user_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    @Column(name = "user_id", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
     private UUID userUuid;
 
     @Column(name = "username", nullable = false, unique = true, length = 50)
