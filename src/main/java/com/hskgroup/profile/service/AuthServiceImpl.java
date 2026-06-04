@@ -83,7 +83,6 @@ public class AuthServiceImpl implements AuthService {
         return AuthTokenRes.builder()
                 .accessToken(accessToken)
                 .refreshToken(refreshToken)
-                .tokenType("Bearer")
                 .accessTokenExpiresIn(jwtTokenProvider.getAccessTokenExpiresInSeconds())
                 .refreshTokenExpiresIn(jwtTokenProvider.getRefreshTokenExpiresInSeconds())
                 .build();

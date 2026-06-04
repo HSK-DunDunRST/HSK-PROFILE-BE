@@ -15,6 +15,7 @@ public class ProjectConverter {
                         .toList();
 
         return ProjectRes.builder()
+                .projectId(projectEntity.getProjectId())
                 .projectTitle(projectEntity.getProjectTitle())
                 .projectDescription(projectEntity.getProjectDescription())
                 .techStacks(safeTechStackList)
