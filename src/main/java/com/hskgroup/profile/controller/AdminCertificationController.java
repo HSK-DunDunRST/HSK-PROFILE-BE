@@ -29,16 +29,16 @@ public class AdminCertificationController {
         return ApiResponse.onSuccess(certificationService.createCertification(certificationCreateReq));
     }
 
-    @PutMapping("/{certificationid}")
-    public ApiResponse<CertificationRes> updateCertification(@PathVariable UUID certificationid, @RequestBody CertificationUpdateReq certificationCreateReq) {
-        return certificationService.updateCertification(certificationid, certificationCreateReq)
+    @PutMapping("/{certificationId}")
+    public ApiResponse<CertificationRes> updateCertification(@PathVariable UUID certificationId, @RequestBody CertificationUpdateReq certificationCreateReq) {
+        return certificationService.updateCertification(certificationId, certificationCreateReq)
                 .map(certification -> ApiResponse.of(SuccessStatus._OK, certification))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }
 
-    @DeleteMapping("/{certificationid}")
-    public ApiResponse<Void> deleteCertification(@PathVariable UUID certificationid) {
-        boolean deleted = certificationService.deleteCertification(certificationid);
+    @DeleteMapping("/{certificationId}")
+    public ApiResponse<Void> deleteCertification(@PathVariable UUID certificationId) {
+        boolean deleted = certificationService.deleteCertification(certificationId);
         return deleted
                 ? ApiResponse.of(SuccessStatus._OK, null)
                 : ApiResponse.of(SuccessStatus._NO_CONTENT, null);
