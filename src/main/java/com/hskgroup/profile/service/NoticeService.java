@@ -4,10 +4,13 @@ import com.hskgroup.profile.dto.NoticeRes;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public interface NoticeService {
     // 공지사항 전체 조회
     List<NoticeRes> getAllNotices();
     // 최신 공지시항 1개 조회
     Optional<NoticeRes> getRecentNotice();
+    // UUID로 공지사항 조회
+    Optional<NoticeRes> getNoticeByUuid(UUID noticeUuid);
 }

@@ -5,12 +5,13 @@ import com.hskgroup.profile.apiPayload.status.SuccessStatus;
 import com.hskgroup.profile.dto.NoticeRes;
 import com.hskgroup.profile.service.NoticeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/notice")
@@ -27,6 +28,13 @@ public class NoticeController {
     @GetMapping("/last")
     public ApiResponse<NoticeRes> getLastNotice() {
         return noticeService.getRecentNotice()
+                .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
+                .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
+    }
+
+    @GetMapping("/{noticeUuid}")
+    public ApiResponse<NoticeRes> getNoticeByUuid(@PathVariable UUID noticeUuid) {
+        return noticeService.getNoticeByUuid(noticeUuid)
                 .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }

@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -27,6 +28,12 @@ public class NoticeServiceImpl implements NoticeService {
     @Override // 최신 공지사항 1개 조회
     public Optional<NoticeRes> getRecentNotice() {
         return noticeRepository.findTopByOrderByCreatedAtDesc()
+                .map(NoticeConverter::convertToNoticeRes);
+    }
+
+    @Override // UUID로 공지사항 조회
+    public Optional<NoticeRes> getNoticeByUuid(UUID noticeUuid) {
+        return noticeRepository.findByNoticeUuid(noticeUuid)
                 .map(NoticeConverter::convertToNoticeRes);
     }
 }
