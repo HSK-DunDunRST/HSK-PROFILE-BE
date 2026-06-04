@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -33,8 +34,8 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Transactional
     @Override
-    public Optional<CertificationRes> updateCertification(Long certificationId, CertificationUpdateReq request) {
-        return certificationRepository.findById(certificationId)
+    public Optional<CertificationRes> updateCertification(UUID certificationUuid, CertificationUpdateReq request) {
+        return certificationRepository.findByCertificationUuid(certificationUuid)
                 .map(certificationEntity -> {
                     certificationEntity.update(
                             request.getCertificationName(),
@@ -48,8 +49,8 @@ public class CertificationServiceImpl implements CertificationService {
 
     @Transactional
     @Override
-    public boolean deleteCertification(Long certificationId) {
-        return certificationRepository.findById(certificationId)
+    public boolean deleteCertification(UUID certificationUuid) {
+        return certificationRepository.findByCertificationUuid(certificationUuid)
                 .map(certificationEntity -> {
                     certificationRepository.delete(certificationEntity);
                     return true;

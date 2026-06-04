@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @RestController
 @RequestMapping("/adm/certification")
 @RequiredArgsConstructor
@@ -27,16 +29,16 @@ public class AdminCertificationController {
         return ApiResponse.onSuccess(certificationService.createCertification(certificationCreateReq));
     }
 
-    @PutMapping("/{certificationId}")
-    public ApiResponse<CertificationRes> updateCertification(@PathVariable Long certificationId, @RequestBody CertificationUpdateReq certificationCreateReq) {
-        return certificationService.updateCertification(certificationId, certificationCreateReq)
+    @PutMapping("/{certificationUuid}")
+    public ApiResponse<CertificationRes> updateCertification(@PathVariable UUID certificationUuid, @RequestBody CertificationUpdateReq certificationCreateReq) {
+        return certificationService.updateCertification(certificationUuid, certificationCreateReq)
                 .map(certification -> ApiResponse.of(SuccessStatus._OK, certification))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }
 
-    @DeleteMapping("/{certificationId}")
-    public ApiResponse<Void> deleteCertification(@PathVariable Long certificationId) {
-        boolean deleted = certificationService.deleteCertification(certificationId);
+    @DeleteMapping("/{certificationUuid}")
+    public ApiResponse<Void> deleteCertification(@PathVariable UUID certificationUuid) {
+        boolean deleted = certificationService.deleteCertification(certificationUuid);
         return deleted
                 ? ApiResponse.of(SuccessStatus._OK, null)
                 : ApiResponse.of(SuccessStatus._NO_CONTENT, null);

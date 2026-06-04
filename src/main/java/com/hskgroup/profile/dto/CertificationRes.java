@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /* 자격증 현황 조회 응답 DTO */
 @Data
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class CertificationRes {
-    private Long certificationId;
+    private UUID certificationId;
     private String certificationName;
     private String organizationName;
     private String acquisitionDate;
