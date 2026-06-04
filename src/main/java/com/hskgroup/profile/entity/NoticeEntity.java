@@ -5,8 +5,9 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
-import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "notice_data")
@@ -17,6 +18,10 @@ public class NoticeEntity extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @UuidGenerator
+    @Column(name = "notice_uuid", nullable = false, unique = true, updatable = false, columnDefinition = "BINARY(16)")
+    private UUID noticeUuid;
 
     @Column(name = "notice_title", nullable = false)
     private String noticeTitle;
