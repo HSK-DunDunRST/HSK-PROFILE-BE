@@ -5,13 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 /* 학력 정보 조회 응답 DTO */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class EducationRes {
-    private Long educationId;
+    private UUID educationId;
     private String schoolName;
     private String majorName;
     private String educationPeriod;
