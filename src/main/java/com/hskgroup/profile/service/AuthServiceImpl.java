@@ -88,4 +88,11 @@ public class AuthServiceImpl implements AuthService {
                 .refreshTokenExpiresIn(jwtTokenProvider.getRefreshTokenExpiresInSeconds())
                 .build();
     }
+
+    @Transactional
+    public void logout(String username) {
+        AdminAccountEntity adminAccount = adminAccountRepository.findByUsername(username)
+                .orElseThrow(() -> new BaseException(ErrorType._USER_NOT_FOUND));
+        adminAccount.updateRefreshTokenId(null);
+    }
 }

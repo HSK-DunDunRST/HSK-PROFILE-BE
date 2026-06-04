@@ -18,29 +18,27 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/admin/notice")
+@RequestMapping("/adm/notice")
 @RequiredArgsConstructor
 public class AdminNoticeController {
 
     private final NoticeService noticeService;
 
-    @PostMapping
-    public ApiResponse<NoticeRes> createNotice(@RequestBody NoticeCreateReq request) {
-        return ApiResponse.onSuccess(noticeService.createNotice(request));
+    @PostMapping("/add")
+    public ApiResponse<NoticeRes> createNotice(@RequestBody NoticeCreateReq noticeCreateReq) {
+        return ApiResponse.onSuccess(noticeService.createNotice(noticeCreateReq));
     }
 
-    @PutMapping("/{noticeUuid}")
-    public ApiResponse<NoticeRes> updateNotice(@PathVariable UUID noticeUuid, @RequestBody NoticeUpdateReq request) {
-        return noticeService.updateNotice(noticeUuid, request)
+    @PutMapping("/edit/{noticeUuid}")
+    public ApiResponse<NoticeRes> updateNotice(@PathVariable UUID noticeUuid, @RequestBody NoticeUpdateReq noticeUpdateReq) {
+        return noticeService.updateNotice(noticeUuid, noticeUpdateReq)
                 .map(notice -> ApiResponse.of(SuccessStatus._OK, notice))
-                .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
+                .orElse(ApiResponse.of(SuccessStatus._OK, null));
     }
 
-    @DeleteMapping("/{noticeUuid}")
+    @DeleteMapping("/del/{noticeUuid}")
     public ApiResponse<Void> deleteNotice(@PathVariable UUID noticeUuid) {
         boolean deleted = noticeService.deleteNotice(noticeUuid);
-        return deleted
-                ? ApiResponse.of(SuccessStatus._OK, null)
-                : ApiResponse.of(SuccessStatus._NO_CONTENT, null);
+        return deleted ? ApiResponse.of(SuccessStatus._OK, null) : ApiResponse.of(SuccessStatus._NO_CONTENT, null);
     }
 }

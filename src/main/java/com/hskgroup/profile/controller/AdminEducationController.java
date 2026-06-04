@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/admin/education")
+@RequestMapping("/adm/education")
 @RequiredArgsConstructor
 public class AdminEducationController {
 
     private final EducationService educationService;
 
     @PostMapping
-    public ApiResponse<EducationRes> createEducation(@RequestBody EducationCreateReq request) {
-        return ApiResponse.onSuccess(educationService.createEducation(request));
+    public ApiResponse<EducationRes> createEducation(@RequestBody EducationCreateReq educationCreateReq) {
+        return ApiResponse.onSuccess(educationService.createEducation(educationCreateReq));
     }
 
     @PutMapping("/{educationId}")
-    public ApiResponse<EducationRes> updateEducation(@PathVariable Long educationId, @RequestBody EducationUpdateReq request) {
-        return educationService.updateEducation(educationId, request)
+    public ApiResponse<EducationRes> updateEducation(@PathVariable Long educationId, @RequestBody EducationUpdateReq educationCreateReq) {
+        return educationService.updateEducation(educationId, educationCreateReq)
                 .map(education -> ApiResponse.of(SuccessStatus._OK, education))
                 .orElse(ApiResponse.of(SuccessStatus._NO_CONTENT, null));
     }

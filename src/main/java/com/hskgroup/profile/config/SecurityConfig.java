@@ -1,6 +1,5 @@
 package com.hskgroup.profile.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hskgroup.profile.apiPayload.ApiResponse;
 import com.hskgroup.profile.apiPayload.status.ErrorType;
 import com.hskgroup.profile.security.JwtAuthenticationFilter;
@@ -11,11 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import tools.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
@@ -29,11 +30,11 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
+        http.csrf(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/login", "/auth/refresh").permitAll()
-                        .requestMatchers("/auth/password", "/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/auth/logout","/auth/password", "/adm/**").hasRole("ADMIN")
                         .anyRequest().permitAll()
                 )
                 .exceptionHandling(ex -> ex
@@ -55,7 +56,7 @@ public class SecurityConfig {
     private void writeErrorResponse(HttpServletResponse response, ErrorType errorType) throws IOException {
         response.setStatus(errorType.getHttpStatus().value());
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
-        ApiResponse<Object> body = ApiResponse.onFailure(errorType.getCode(), errorType.getMessage(), null);
+        ApiResponse<Object> body = ApiResponse.onFailure(errorType, null);
         response.getWriter().write(objectMapper.writeValueAsString(body));
     }
 }

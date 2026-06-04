@@ -9,4 +9,5 @@ public interface AuthService {
     AuthTokenRes login(AuthLoginReq request);
     AuthTokenRes refresh(AuthRefreshReq request);
     void changePassword(String username, AdminPasswordChangeReq request);
+    void logout(String username);
 }

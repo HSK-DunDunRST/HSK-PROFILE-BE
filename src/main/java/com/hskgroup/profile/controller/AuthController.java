@@ -39,4 +39,11 @@ public class AuthController {
         authService.changePassword(authentication.getName(), request);
         return ApiResponse.onSuccess(null);
     }
+
+    @PostMapping("/logout")
+    public ApiResponse<Void> logout() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        authService.logout(authentication.getName());
+        return ApiResponse.onSuccess(null);
+    }
 }
