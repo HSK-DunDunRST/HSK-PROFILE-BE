@@ -1,0 +1,10 @@
+package com.hskgroup.profile.repository;
+
+import com.hskgroup.profile.entity.AdminAccountEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface AdminAccountRepository extends JpaRepository<AdminAccountEntity, Long> {
+    Optional<AdminAccountEntity> findByUsername(String username);
+}

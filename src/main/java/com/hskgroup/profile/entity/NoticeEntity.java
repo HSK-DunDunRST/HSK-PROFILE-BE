@@ -30,4 +30,16 @@ public class NoticeEntity extends BaseTimeEntity {
     @Column(name = "notice_content", nullable = false)
     private String noticeContent;
 
+    public static NoticeEntity create(String noticeTitle, String noticeContent) {
+        NoticeEntity noticeEntity = new NoticeEntity();
+        noticeEntity.noticeTitle = noticeTitle;
+        noticeEntity.noticeContent = noticeContent;
+        return noticeEntity;
+    }
+
+    public void update(String noticeTitle, String noticeContent) {
+        this.noticeTitle = noticeTitle;
+        this.noticeContent = noticeContent;
+    }
+
 }

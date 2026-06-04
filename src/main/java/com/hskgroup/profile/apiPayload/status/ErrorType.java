@@ -18,7 +18,8 @@ public enum ErrorType implements BaseErrorCode {
     _FORBIDDEN(HttpStatus.FORBIDDEN, "COMMON403", "허용되지 않은 요청이에요!"),
     _RESOURCE_NOT_FOUND(HttpStatus.NOT_FOUND, "RESOURCE404", "리소스를 찾을 수 없어요!"),
     _INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "COMMON500", "서버에 에러가 있어요!"),
-    _MISSING_FILED_ERROR(HttpStatus.NOT_IMPLEMENTED, "FIELD501", "필수 파라미터가 누락되었어요!");
+    _MISSING_FILED_ERROR(HttpStatus.NOT_IMPLEMENTED, "FIELD501", "필수 파라미터가 누락되었어요!"),
+    _USER_NOT_FOUND(HttpStatus.NOT_FOUND, "USER404", "사용자를 찾을 수 없어요!");
 
     private final HttpStatus httpStatus;
     private final String code;

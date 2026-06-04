@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /* 공지사항 조회 응답 DTO */
 @Data
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class NoticeRes {
+    private UUID noticeUuid;
     private String noticeTitle;
     private String noticeContent;
     private LocalDateTime noticeCreateDate;
