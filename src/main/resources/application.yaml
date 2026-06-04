@@ -27,6 +27,16 @@ server:
     context-path: /api/v1
   port: 8080
 
+security:
+  jwt:
+    secret: ${JWT_SECRET:change-me-change-me-change-me-change-me}
+    issuer: ${JWT_ISSUER:HSK-PROFILE}
+    access-token-expiration-minutes: ${JWT_ACCESS_MINUTES:15}
+    refresh-token-expiration-days: ${JWT_REFRESH_DAYS:7}
+  admin:
+    username: ${ADMIN_USERNAME:admin}
+    password: ${ADMIN_PASSWORD:admin}
+
 logging:
   level:
     org.hibernate.SQL: debug

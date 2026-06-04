@@ -1,6 +1,8 @@
 package com.hskgroup.profile.service;
 
+import com.hskgroup.profile.dto.NoticeCreateReq;
 import com.hskgroup.profile.dto.NoticeRes;
+import com.hskgroup.profile.dto.NoticeUpdateReq;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,4 +15,10 @@ public interface NoticeService {
     Optional<NoticeRes> getRecentNotice();
     // UUID로 공지사항 조회
     Optional<NoticeRes> getNoticeByUuid(UUID noticeUuid);
+    // 공지사항 등록
+    NoticeRes createNotice(NoticeCreateReq request);
+    // 공지사항 수정
+    Optional<NoticeRes> updateNotice(UUID noticeUuid, NoticeUpdateReq request);
+    // 공지사항 삭제
+    boolean deleteNotice(UUID noticeUuid);
 }

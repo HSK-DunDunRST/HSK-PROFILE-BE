@@ -29,4 +29,20 @@ public class EducationEntity extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "edu_status", nullable = false, length = 20)
     private EducationStatus educationStatus;
+
+    public static EducationEntity create(String schoolName, String majorName, String educationPeriod, EducationStatus educationStatus) {
+        EducationEntity educationEntity = new EducationEntity();
+        educationEntity.schoolName = schoolName;
+        educationEntity.majorName = majorName;
+        educationEntity.educationPeriod = educationPeriod;
+        educationEntity.educationStatus = educationStatus;
+        return educationEntity;
+    }
+
+    public void update(String schoolName, String majorName, String educationPeriod, EducationStatus educationStatus) {
+        this.schoolName = schoolName;
+        this.majorName = majorName;
+        this.educationPeriod = educationPeriod;
+        this.educationStatus = educationStatus;
+    }
 }

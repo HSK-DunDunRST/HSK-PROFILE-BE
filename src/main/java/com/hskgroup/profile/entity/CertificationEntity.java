@@ -27,4 +27,20 @@ public class CertificationEntity extends BaseTimeEntity {
 
     @Column(name = "expiration_date", length = 20)
     private String expirationDate;
+
+    public static CertificationEntity create(String certificationName, String organizationName, String acquisitionDate, String expirationDate) {
+        CertificationEntity certificationEntity = new CertificationEntity();
+        certificationEntity.certificationName = certificationName;
+        certificationEntity.organizationName = organizationName;
+        certificationEntity.acquisitionDate = acquisitionDate;
+        certificationEntity.expirationDate = expirationDate;
+        return certificationEntity;
+    }
+
+    public void update(String certificationName, String organizationName, String acquisitionDate, String expirationDate) {
+        this.certificationName = certificationName;
+        this.organizationName = organizationName;
+        this.acquisitionDate = acquisitionDate;
+        this.expirationDate = expirationDate;
+    }
 }
