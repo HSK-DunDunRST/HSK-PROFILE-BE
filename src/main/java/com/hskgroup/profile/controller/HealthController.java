@@ -14,6 +14,6 @@ public class HealthController {
 
     @GetMapping("/check")
     public ApiResponse<?> getHealth(){
-        return ApiResponse.onSuccess(HttpStatus.OK);
+        return ApiResponse.onSuccess();
     }
 }
