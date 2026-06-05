@@ -22,7 +22,12 @@ public class ApiResponse<T> {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private T data;
 
-    // 성공한 경우 응답 생성
+    // 성공한 경우 성공 응답 생성 (Result 없음)
+    public static <T> ApiResponse<T> onSuccess() {
+        return new ApiResponse<>(true, SuccessStatus._OK.getCode(), SuccessStatus._OK.getMessage(), null);
+    }
+
+    // 성공한 경우 응답 생성 (Parameter - Generic Result)
     public static <T> ApiResponse<T> onSuccess(T result){
         return new ApiResponse<>(true, SuccessStatus._OK.getCode() , SuccessStatus._OK.getMessage(), result);
     }
